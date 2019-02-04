@@ -1,6 +1,7 @@
 import { 
     SET_USER_PURCHASES,
-    SET_PURCHASE_DETAIL
+    SET_PURCHASE_DETAIL,
+    SET_CART_PRODUCTS
 } from './types';
 
 export function setPurchaseDetail(_id) {
@@ -10,98 +11,130 @@ export function setPurchaseDetail(_id) {
     })
 }
 
+
+export function fetchCartProducts() {
+    return ({
+        type: SET_CART_PRODUCTS,
+        payload: [
+            {
+                _id: 0,
+                product: {
+                    _id: 0,
+                    title: 'JavaScript in the Browser',
+                    description: 'The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. ... The running speed starts slowly, but gets faster each minute after you hear this signal.',
+                    price: 1.99,
+                    belongsTo: [0, 1]
+                },
+                quantity: 2
+            },
+            {
+                _id: 1,
+                product: {
+                    _id: 1,
+                    title: 'Graph Database',
+                    description: 'The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. ... The running speed starts slowly, but gets faster each minute after you hear this signal.',
+                    price: 1.99,
+                    belongsTo: [0, 6]
+                },
+                quantity: 1
+            },
+        ]
+    })
+}
+
 export function fetchUserPurchases() {
     return ({
         type: SET_USER_PURCHASES,
         payload: [
             {
                 _id: 0,
-                total: 19.00,
+                total: 19.40,
                 orderNumber: 'A0048248343',
                 orderDate: new Date().toDateString(),
                 creditCard: '-0000',
                 user: {
-                    name: 'Bojurie Rogers-Wright',
+                    name: 'Jordan Hudgens',
                     shippingAddress: '1234 West State Street'
                 }
             },
             {
                 _id: 1,
-                total: 19.40,
-                orderNumber: 'A0048266552',
+                total: 1.30,
+                orderNumber: '24343sdfkjh72',
                 orderDate: new Date().toDateString(),
                 creditCard: '-0000',
                 user: {
-                    name: 'Chester Brown',
-                    shippingAddress: '1234 West State Street'
+                    name: 'Maxwell Nelson',
+                    shippingAddress: '1337 West State Street'
                 }
             },
             {
                 _id: 2,
-                total: 22.46,
-                orderNumber: 'A0048998878',
+                total: 1.30,
+                orderNumber: 'B0048248343',
                 orderDate: new Date().toDateString(),
                 creditCard: '-0000',
                 user: {
-                    name: 'Sam Smith',
+                    name: 'Jordan Hudgens',
                     shippingAddress: '1234 West State Street'
                 }
             },
             {
                 _id: 3,
-                total:15.70,
-                orderNumber: 'A004826489',
+                total: 16.40,
+                orderNumber: 'ADFasdlfkjwe',
                 orderDate: new Date().toDateString(),
                 creditCard: '-0000',
                 user: {
-                    name: 'Idris Rogers-Wright',
+                    name: 'Max Asher Nelson',
                     shippingAddress: '1234 West State Street'
                 }
             },
             {
                 _id: 4,
-                total: 12.40,
-                orderNumber: 'A0048267832',
+                total: 19.40,
+                orderNumber: 'A0048248343',
                 orderDate: new Date().toDateString(),
                 creditCard: '-0000',
                 user: {
-                    name: 'Kamen Rogers-Wright',
+                    name: 'Jordan Hudgens',
                     shippingAddress: '1234 West State Street'
                 }
             },
             {
                 _id: 5,
-                total: 35.40,
-                orderNumber: 'A004822345',
+                total: 19.40,
+                orderNumber: 'A0048248343',
                 orderDate: new Date().toDateString(),
                 creditCard: '-0000',
                 user: {
-                    name: 'Ariana Rogers-Wright',
+                    name: 'Jordan Hudgens',
                     shippingAddress: '1234 West State Street'
                 }
             },
             {
                 _id: 6,
-                total: 35.40,
-                orderNumber: 'A004822333',
+                total: 19.40,
+                orderNumber: 'A0048248343',
                 orderDate: new Date().toDateString(),
                 creditCard: '-0000',
                 user: {
-                    name: 'Nala Wright',
-                    shippingAddress: '34 east State Street'
+                    name: 'Jordan Hudgens',
+                    shippingAddress: '1234 West State Street'
                 }
             },
             {
                 _id: 7,
-                total: 39.91,
-                orderNumber: 'A004820098',
+                total: 3.20,
+                orderNumber: '5UFISHDFJASUSHI298',
                 orderDate: new Date().toDateString(),
                 creditCard: '-0000',
                 user: {
-                    name: 'Paul Abban',
-                    shippingAddress: '1234 West State Street'
+                    name: 'Andrew Wold',
+                    shippingAddress: '348 Yo State Street'
                 }
-            }  
+            },
+          
         ]
     })
 }

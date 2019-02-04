@@ -42,42 +42,57 @@
 }
 
 .cart-content {
+
+  display: grid;
+  grid-template-rows: 25px [title-s] 80px [title-e products-s] 1fr [products-e footer-s] 113px [footer-e];
+  grid-template-columns: [footer-s] 30px [s] 1fr [e] 30px [footer-e];
+
   &__title {
+      grid-column: s/e;
+      grid-row: title-s/title-e;
       font-weight: 600;
       font-size: 30px;
       font-family: 'Titillium Web';
       color: #E6E6E6;
+      margin-bottom: 50px;
   }
   &__products {
+      grid-column: s/e;
+      grid-row: products-s/products-e;
       display: grid;
   }
   &__footer {
+      grid-column: footer-s/footer-e;
+      grid-row: footer-s/footer-e;
       display: grid;
   }
 }
 
+
 .cart-footer {
   height: 113px;
-  width: 521px;
-  background-color: #1a1a1a; 
+  background-color: #1A1A1A;
+
   display: grid;
   grid-template-rows: [s] 1fr [e];
-  grid-template-columns: 50px [checkout-s] 1fr [checkout-e sub-s] 1fr [sub-e] 37px [price-s] 46px [price-e] 31px; 
+  grid-template-columns: 50px [checkout-s] 1fr [checkout-e sub-s] 1fr [sub-e] 27px [price-s] 46px [price-e] 31px;
   align-items: center;
-  
 
   & > * {
-    grid-row: s/e;
+      grid-row: s/e;
   }
+
   &__checkout {
-    display: grid;
-    grid-column: checkout-s/checkout-e;
-    justify-items: center;
-    align-items: center;
+      grid-column: checkout-s/checkout-e; 
+
+      display: grid;
+      justify-items: center;
+      align-items: center;
+
       height: 38px;
       width: 183px;
       border-radius: 20px;
-      color: #00CB79;
+      background-color: #00CB79;
 
       color: white;
       font-size: 1.6rem;
@@ -91,28 +106,25 @@
 
       &:active {
           transform: scale(0.95);
-        }
+      }
+
       &:focus {
           outline: none;
-
       }
-    }
-    &__subtotal {
-      justify-self: end; 
-      grid-column: sub-s/sub-e;
+  }
 
+  &__subtotal {
+      justify-self: end;
+      grid-column: sub-s/sub-e; 
       font-size: 18px;
-    }
-    &__price {
-      justify-self: start; 
-      grid-column: price-s/price-e;
+  }
 
+  &__price {
+      justify-self: start;
+      grid-column: price-s/price-e; 
       font-size: 18px;
       color: white;
       font-weight: 600;
-
-
-
   }
-  
+
 }

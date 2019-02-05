@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import CartProduct from './cartProduct';
 
 import { connect } from 'react-redux';

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
-import SignInForm from './signinForm';
 import PageTitle from '../pageTitle';
+
+// REDUX 
 
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
-class SignIn extends Component {
+class Shipping extends Component {
 
     componentDidMount() {
         this.props.setHeaderLinks([]);
@@ -14,19 +15,19 @@ class SignIn extends Component {
     }
 
     onSubmit = (fields) => {
-       console.log(fields);
+        console.log(fields);
     }
 
     render() {
         return (
             <div className='sign-in'>
-                <PageTitle className='sign-in__page-title' title='Login' />
-                <SignInForm onSubmit={this.onSubmit} className='sign-in__form' />
+                <PageTitle className='sign-in__page-title' title='Shipping Address' />
+                {/* <ShippingForm onSubmit={this.onSubmit} className='sign-in__form' /> */}
             </div>
         )
     }
 }
 
-SignIn = connect(null, actions)(SignIn);
+Shipping = connect(null, actions)(Shipping);
 
-export default SignIn;
+export default Shipping;

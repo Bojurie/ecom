@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { reduxForm, Field } from 'redux-form';
+import { connect } from 'react-redux'; 
 
 import { FormInput, FormButton } from '../formFields';
 
@@ -11,6 +12,7 @@ import { UnderlinedTitle } from './infoHelp';
 class PaymentForm extends Component {
     render() {
         const { className, handleSubmit } = this.props;
+  
         return (
             <form onSubmit={handleSubmit} className={`${className} payment-form`}>
                 <Field className='payment-form__name'
@@ -19,16 +21,17 @@ class PaymentForm extends Component {
                 placeholder='Name'
                 name='name'
                 component={FormInput}/>
-                <Field className='payment-form__card'
+                 <Field className='payment-form__card'
                 type='card'
                 title='Credit Card Number'
                 placeholder='____-____-____-____'
                 name='card'
                 component={FormInput}/>
+
                 <Field className='payment-form__expiration'
                 type='expiration'
                 title='Expiration Date'
-                placeholder='Expiration'
+                placeholder='expiration'
                 name='expiration'
                 component={FormInput}/>
                 <Field className='payment-form__ccv'
@@ -55,10 +58,8 @@ class PaymentForm extends Component {
                 <OrderSummary className='payment-form__order-summary'/>
                 <div className='payment-form__shipping-info shipping-info'>
                     <UnderlinedTitle className='shipping-info__title' title='Shipping To'/>
-                    <div className='shipping-info__name small-text'>Bojurie Rogers-Wright</div>
-                    <div className='shipping-info__address small-text'>1234 hover blvd</div>
-
-
+                    <div className='shipping-info__name small-text'>{this.props.name}</div>
+                    <div className='shipping-info__address small-text'>{this.props.address}</div>
                 </div>
             </form>
         )
@@ -68,5 +69,12 @@ class PaymentForm extends Component {
 PaymentForm = reduxForm({
     form: 'PaymentForm'
 })(PaymentForm);
+
+function mapStateToProps(state) {
+    const { name, address } = state.user.user;
+    return { name, address }
+}
+
+PaymentForm = connect(mapStateToProps)(PaymentForm);
 
 export default PaymentForm;
